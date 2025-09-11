@@ -60,7 +60,7 @@ INFTY has implemented three mainstream algorithms currently:
 # 📚 Versatile Case (Ongoing Updates)
 ## Scenario 1: Typical Continual Learning
 ### Case 1: Generalizability support 
-This category covers standard sharpness-aware generalization methods for exploring flatter regions. These methods can be applied to most architectures and training platforms, either from scratch or with pre-trained models (PTMs). Details can be found in [C_Flat](https://arxiv.org/abs/2404.00986v1).
+This category promotes unified and flat loss landscapes to enhance adaptation across tasks over time. These methods can be applied to most architectures and training platforms, either from scratch or with pre-trained models (PTMs). Details can be found in [C_Flat](https://arxiv.org/abs/2404.00986v1).
 <div align="center">
 <img src="./img/case1.png"/>  
 </div>
