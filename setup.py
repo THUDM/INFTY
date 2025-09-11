@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     author='taofeng weili',
     author_email='ymjiii98@gmail.com',  
-    url='https://github.com/hi-fengtao/infty',
+    url='https://github.com/THUDM/INFTY',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     classifiers=[
