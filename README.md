@@ -114,7 +114,7 @@ cd infty && pip install .
 ```
 
 # 🚀 Quick start
-Welcome to INFTY. Thanks to the PILOT repo, we provide a simple example showcasing INFTY Engine. Hyperparameters for specific methods are configured in `../infty_configs/`. You also feel free to use INFTY in your own projects following Installation or Custom usage.
+Thanks to the PILOT repo, we provide a simple example showcasing INFTY Engine. Hyperparameters for specific methods are configured in `../infty_configs/`. You also feel free to use INFTY in your own projects following Installation or Custom usage.
 ```bash
 cd infty 
 
