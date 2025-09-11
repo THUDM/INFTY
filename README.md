@@ -114,8 +114,7 @@ cd infty && pip install .
 ```
 
 # 🚀 Quick start
-Thanks to the open-source PILOT repo, we provide an example showcasing INFTY optimizers.
-Hyperparameters for specific methods are configured in `../infty_configs/`
+Welcome to INFTY. Thanks to the PILOT repo, we provide a simple example showcasing INFTY Engine. Hyperparameters for specific methods are configured in `../infty_configs/`. You also feel free to use INFTY in your own projects following Installation or Custom usage.
 ```bash
 cd infty 
 
@@ -179,7 +178,7 @@ infty_plot.visualize_trajectory(optim="c_flat")
 ```
 
 # 📝 Citation
-Welcome to INFTY, if any content in this repo is useful for your work, please cite the following paper:
+If any content in this repo is useful for your work, please cite the following paper:
 
 - `ZeroFlow:` Zeroflow: Overcoming catastrophic forgetting is easier than you think. ICML 2025 [[paper]](https://arxiv.org/abs/2501.01045)
 
