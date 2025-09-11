@@ -1,0 +1,10 @@
+# GSAM optimizer configuration
+
+name: gsam  # Optimizer name
+rho: 0.1          # Perturbation radius 
+alpha: 0.2         # scale of the ascent stepsize
+
+adaptive: false   # Whether to use adaptive perturbation
+perturb_eps: 1e-12  # Small epsilon to avoid division by zero
+grad_reduce: mean   # Gradient reduction method (mean or sum)
+rho_scheduler: null # Scheduler for rho (optional, choose from [null, cosine, linear, proportion]) 

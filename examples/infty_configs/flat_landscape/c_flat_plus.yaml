@@ -1,0 +1,18 @@
+# C-Flat_plus optimizer configuration
+  
+name: c_flat_plus  # Optimizer name
+rho: 0.2          # Perturbation radius
+lamb: 0.2         # Smoothing coefficient for first-order flatness 
+
+strategy: plus   # C-Flat strategy mode, choose from [basic, plus]
+
+A: 5.0            # Parameter for C-Flat plus, initial maximum gradient value
+k: 0.1           # Parameter for C-Flat plus, initial decay rate
+t0: 80            # Parameter for C-Flat plus, initial stable point
+cof: 0.8          # Parameter for C-Flat plus, gradient update learning rate
+
+
+adaptive: false   # Whether to use adaptive perturbation
+perturb_eps: 1e-12  # Small epsilon to avoid division by zero
+grad_reduce: mean   # Gradient reduction method (mean or sum)
+rho_scheduler: null # Scheduler for rho (optional, choose from [null, cosine, linear, proportion]) 

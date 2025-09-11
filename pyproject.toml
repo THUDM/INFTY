@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infty"
+dynamic = ["version"]
+description = "A continual learning optimizer and visualization toolkit"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [
+    {name = "taofeng weili", email = "ymjiii98@gmail.com"}
+]
+keywords = ["optimization", "visualization", "machine learning", "deep learning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    'torch>=2.4.0',
+    'torchvision',
+    'numpy',
+    'matplotlib',
+    'scipy',
+    'seaborn',
+    'tqdm',
+]
+
+[project.optional-dependencies]
+examples = [
+    "easydict",
+    "Pillow",
+    "PyYAML",
+    "scikit-learn",
+    "timm>=0.6.13",
+    "umap-learn",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools_scm]
+write_to = "src/infty/_version.py"

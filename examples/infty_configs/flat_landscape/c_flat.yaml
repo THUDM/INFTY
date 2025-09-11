@@ -1,0 +1,12 @@
+# C-Flat optimizer configuration
+
+name: c_flat  # Optimizer name
+rho: 0.1          # Perturbation radius
+lamb: 0.1         # Smoothing coefficient for first-order flatness 
+
+strategy: basic   # C-Flat strategy mode, choose from [basic, plus]
+
+adaptive: false   # Whether to use adaptive perturbation
+perturb_eps: 1e-12  # Small epsilon to avoid division by zero
+grad_reduce: mean   # Gradient reduction method (mean or sum)
+rho_scheduler: null # Scheduler for rho (optional, choose from [null, cosine, linear, proportion]) 

@@ -1,0 +1,11 @@
+# Look_SAM optimizer configuration
+
+name: looksam  # Optimizer name
+rho: 0.1          # Perturbation radius 
+k: 5              # Number of steps to look ahead
+alpha: 0.7        # Smoothing coefficient for gradient update
+
+adaptive: false   # Whether to use adaptive perturbation
+perturb_eps: 1e-12  # Small epsilon to avoid division by zero
+grad_reduce: mean   # Gradient reduction method (mean or sum)
+rho_scheduler: null # Scheduler for rho (optional, choose from [null, cosine, linear, proportion]) 

@@ -1,0 +1,11 @@
+# Unigrad_FS optimizer configuration
+
+name: unigrad_fs  # Optimizer name
+
+utype: model-wise  # model-wise or layer-wise
+S_T: [-1]          # initial similarity threshold
+beta: 0.9          # beta for updating S_T
+
+rho: 0.05           # perturbation scale
+perturb_eps: 1e-12  # epsilon for numerical stability
+adaptive: false     # whether to use adaptive perturbation

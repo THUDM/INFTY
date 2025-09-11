@@ -1,0 +1,14 @@
+.zlogs/
+.idea/
+build/
+dist/
+zlogs/
+logs/
+data/
+ckp/
+plots/
+__pycache__/
+*.py[cod]
+*.txt
+*.egg-info/
+commit.sh

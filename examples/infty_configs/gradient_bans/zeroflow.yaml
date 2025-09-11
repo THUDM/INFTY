@@ -1,0 +1,15 @@
+# ZO optimizer configuration
+
+name: zeroflow  # Optimizer name
+
+init_epochs: 100
+init_lr: 0.0001  # RECOMMEND: SGD for 0.0001, Adam for 0.001
+q: 1             # query number per step
+zo_eps: 0.001    # perturbation step size
+perturbation_mode: "two_side"  # two-side or one-side perturbation, options: [two_side, one_side]
+memory_efficient: true  # whether use memory efficient gradient
+
+use_history_grad: false  # whether use history gradient to smooth the gradient
+alpha: 0.9        # alpha for history gradient
+
+gradient_sparsity: null  # gradient sparsity, options: [null, float of sparsity, dict of sparsity]

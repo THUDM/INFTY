@@ -1,0 +1,7 @@
+# OGD optimizer configuration
+name: ogd                # Optimizer name
+
+strategy: base               # [base, plus]
+pca: false
+num_sample_per_task: 50
+

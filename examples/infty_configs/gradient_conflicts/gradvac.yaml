@@ -1,0 +1,7 @@
+# GradVac optimizer configuration
+
+name: gradvac  # Optimizer name
+
+utype: model-wise  # model-wise or layer-wise
+S_T: [-1]          # initial similarity threshold
+beta: 0.9          # beta for updating S_T
