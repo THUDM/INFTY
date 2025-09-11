@@ -7,7 +7,7 @@ def read_readme():
 
 setup(
     name='infty',
-    version='0.1.0',
+    version='0.1.1',
     description='A continual learning optimizer and visualization toolkit',
     long_description=read_readme(),
     long_description_content_type="text/markdown",
