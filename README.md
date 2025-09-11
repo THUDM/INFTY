@@ -32,7 +32,7 @@
   <center><h2>INFTY Engine: An Optimization Toolkit to Support Continual AI</h2></center>
 </div>
 
-🌟 Initial version of **INFTY** is released. (Pre-print to be updated)
+- [2025-09] 🌟 Initial version of **INFTY** is released. (Pre-print to be updated)
 
 # 🌈 What is INFTY?
 
