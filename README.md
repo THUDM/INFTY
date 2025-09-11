@@ -184,7 +184,7 @@ If any content in this repo is useful for your work, please cite the following p
 
 - `C-Flat++:` C-Flat++: Towards a More Efficient and Powerful Framework for Continual Learning. Arxiv 2025 [[paper]](https://arxiv.org/abs/2508.18860)
 
-- `C-Flat:` Make Continual Learning Stronger via C-Flat. NeurIPS 2024 [[paper]](https://arxiv.org/abs/2404.00986v1)
+- `C-Flat:` Make Continual Learning Stronger via C-Flat. NeurIPS 2024 [[paper]](https://arxiv.org/abs/2404.00986v2)
 
 - `UniGrad-FS:` UniGrad-FS: Unified Gradient Projection With Flatter Sharpness for Continual Learning. TII 2024 [[paper]](https://ieeexplore.ieee.org/abstract/document/10636267)
 
