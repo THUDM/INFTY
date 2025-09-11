@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/logo.png"/ width=600>  
+<img src="./img/logo.png"/ width=600>  
 </div>
 
 <!--
@@ -35,7 +35,7 @@
 # 🌈 What is INFTY?
 
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/INFTY_demo.gif" alt="animated" />
+<img src="./img/INFTY_demo.gif" alt="animated" />
 </div>
 </br>
 
@@ -53,7 +53,7 @@
 INFTY has implemented three mainstream algorithms currently:
 
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/overview.png"/>  
+<img src="./img/overview.png"/>  
 </div>
 
 
@@ -62,7 +62,7 @@ INFTY has implemented three mainstream algorithms currently:
 ### Case 1: Generalizability support 
 This category covers standard sharpness-aware generalization methods for exploring flatter regions. These methods can be applied to most architectures and training platforms, either from scratch or with pre-trained models (PTMs). Details can be found in [C_Flat](https://arxiv.org/abs/2404.00986v1).
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/case1.png"/>  
+<img src="./img/case1.png"/>  
 </div>
 
 ### Case 2: BP-Free support
@@ -74,13 +74,13 @@ This category focuses on gradient approximation when backpropagation is not feas
 ### Case 3: Multi-objective support
 This category mitigates gradient interference between old and new task objectives, with gradient manipulation applied solely to shared parameters. Details can be found in [UniGrad_FS](https://ieeexplore.ieee.org/abstract/document/10636267).
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/case3.png"/>  
+<img src="./img/case3.png"/>  
 </div>
 
 ## Scenario 2: Continual Text-to-Image Diffusion Model
 INFTY empowers CIDM! A tiny demo shows how INFTY can be applied to train Concept-Incremental text-to-image Diffusion Models. Origin repo can be found in [CIDM](https://github.com/JiahuaDong/CIFC).
 <div align="center">
-<img src="https://github.com/THUDM/INFTY/tree/main/img/cidm.png"/>  
+<img src="./img/cidm.png"/>  
 </div>
 
 
