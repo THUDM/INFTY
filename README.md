@@ -126,8 +126,7 @@ python main.py --config=exps/memo_scr.json --inftyopt=c_flat
 python main.py --config=exps/ease.json --inftyopt=zo_sgd_conserve
 python main.py --config=exps/icarl.json --inftyopt=unigrad_fs
 ```
-
-💡 Tips: Feel free to use INFTY in your own projects following 🛠️ Installation or 🧩 Custom usage.
+Tips: Feel free to use INFTY in your own projects following 🛠️ Installation or 🧩 Custom usage.
 
 # 🧩 Custom usage
 ## Optimizers
