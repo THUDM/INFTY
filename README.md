@@ -39,7 +39,7 @@
 </div>
 </br>
 
-**INFTY**, a flexible and user-friendly optimization engine tailored for Continual AI. INFTY includes a suite of built-in optimization algorithms that directly tackle core challenges (e.g., catastrophic forgetting, stability–plasticity dilemma, generalization) in Continual AI. INFTY supports plug-and-play and theoretical analysis utilities, compatible with: i) various Continual AI, e.g., PTM-based CL, and Continual PEFT, Continual Diffusion, and Continual VLM etc.; ii) diverse models, e.g., ResNet, Transformer, ViT, CLIP, and Diffusion. INFTY provides a unified optimization solution in Continual AI, can serve as infrastructure for broad deployment.
+**INFTY**(https://arxiv.org/abs/2501.01045), a flexible and user-friendly optimization engine tailored for Continual AI. INFTY includes a suite of built-in optimization algorithms that directly tackle core challenges (e.g., catastrophic forgetting, stability–plasticity dilemma, generalization) in Continual AI. INFTY supports plug-and-play and theoretical analysis utilities, compatible with: i) various Continual AI, e.g., PTM-based CL, and Continual PEFT, Continual Diffusion, and Continual VLM etc.; ii) diverse models, e.g., ResNet, Transformer, ViT, CLIP, and Diffusion. INFTY provides a unified optimization solution in Continual AI, can serve as infrastructure for broad deployment.
 
 
 # ✨ Features
