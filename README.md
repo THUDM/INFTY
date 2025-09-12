@@ -21,7 +21,7 @@
 
 <p align="center">
   <a href="https://github.com/THUDM/INFTY/"><img src="https://img.shields.io/badge/Documentation-Read%20the%20Docs-blue.svg" alt="Documentation"></a>
-  <a href="https://arxiv.org/abs/2501.01045"><img src="https://img.shields.io/badge/arXiv-2507.12345-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://github.com/THUDM/INFTY/"><img src="https://img.shields.io/badge/arXiv-2507.12345-b31b1b.svg" alt="arXiv"></a>
   <a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
   <a href="https://pypi.org/project/numpy/1.24.4/"><img src="https://img.shields.io/badge/numpy-1.24.4-blue.svg" alt="numpy"></a>
   <a href="https://pypi.org/project/matplotlib/3.7.5/"><img src="https://img.shields.io/badge/matplotlib-3.7.5-blue.svg" alt="matplotlib"></a>
@@ -32,7 +32,7 @@
   <center><h2>INFTY Engine: An Optimization Toolkit to Support Continual AI</h2></center>
 </div>
 
-- 🌟 Initial version of **INFTY** is released. (Pre-print to be updated)
+- 🌟 Initial version of **INFTY** is released. (*Pre-print to be updated*)
 
 # 🌈 What is INFTY?
 
