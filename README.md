@@ -203,7 +203,7 @@ We thank the following repos providing helpful components/functions in our work.
 [PyHessian](https://github.com/amirgholami/PyHessian)
 
 # 📬 Contact us
-If you have any questions, feel free to open an issue or contact the contributors: Wei Li (ymjiii98@gmail.com) or Tao Feng (fengtao.hi@gmail.com).
+If you have any questions, feel free to open an issue or contact the authors: Wei Li (ymjiii98@gmail.com) or Tao Feng (fengtao.hi@gmail.com).
 
 # 🧾 License
 This project is licensed under the MIT License.
