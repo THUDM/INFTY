@@ -78,8 +78,6 @@ jobs:
     needs: build
     if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.publish_to_pypi)
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
     environment:
       name: pypi
       url: https://pypi.org/p/infty
@@ -90,8 +88,20 @@ jobs:
           name: release-dist
           path: dist
 
+      - name: Ensure PyPI token is configured
+        env:
+          PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          if [ -z "${PYPI_API_TOKEN}" ]; then
+            echo "PYPI_API_TOKEN secret is not configured for the 'pypi' environment." >&2
+            echo "Add your existing project-scoped PyPI token as the environment secret PYPI_API_TOKEN." >&2
+            exit 1
+          fi
+
       - name: Publish distributions
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
   github-release:
     name: Create GitHub release
