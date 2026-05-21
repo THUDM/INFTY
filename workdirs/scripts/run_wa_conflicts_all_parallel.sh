@@ -21,7 +21,7 @@ fi
 
 mkdir -p "${RESULTS_DIR}"
 
-source /data/fengtao/miniconda3/bin/activate infty
+source "${SCRIPT_DIR}/_activate_infty_env.sh"
 export PYTHONPATH="${REPO_ROOT}/src${PYTHONPATH:+:${PYTHONPATH}}"
 
 exec > >(tee -a "${RESULTS_DIR}/launcher.log") 2>&1

@@ -13,7 +13,7 @@ RESULTS_DIR="${WORKDIRS_ROOT}/results/${RUN_NAME}"
 
 mkdir -p "${RESULTS_DIR}"
 
-source /data/fengtao/miniconda3/bin/activate infty
+source "${SCRIPT_DIR}/_activate_infty_env.sh"
 
 export CUDA_VISIBLE_DEVICES="${GPU_ID}"
 export PYTHONPATH="${REPO_ROOT}/src${PYTHONPATH:+:${PYTHONPATH}}"
