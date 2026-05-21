@@ -7,7 +7,7 @@ This guide describes how to extend INFTY with new optimizers, plotting utilities
 A typical INFTY repository layout is:
 
 ```text
-INFTY_demo/
+INFTY/
 ├── README.md
 ├── pyproject.toml
 ├── setup.py
@@ -32,8 +32,8 @@ INFTY_demo/
 ## Development installation
 
 ```bash
-git clone https://github.com/WanNaa/INFTY_demo.git
-cd INFTY_demo
+git clone https://github.com/THUDM/INFTY.git
+cd INFTY
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip

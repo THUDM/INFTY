@@ -6,12 +6,12 @@ For the minimum usage pattern and the smallest inline optimizer example, start w
 
 ## PILOT formal runs
 
-The repository retains formal [PILOT](https://github.com/WanNaa/INFTY_demo/tree/main/workdirs/PILOT) launcher scripts under `workdirs/scripts/`. These correspond to the preserved formal artifacts under `workdirs/results/`.
+The repository retains formal [PILOT](https://github.com/THUDM/INFTY/tree/main/workdirs/PILOT) launcher scripts under `workdirs/scripts/`. These correspond to the preserved formal artifacts under `workdirs/results/`.
 
 Install the PILOT/demo dependencies from the repository root:
 
 ```bash
-cd INFTY_demo
+cd INFTY
 python -m pip install ".[examples]"
 ```
 

@@ -36,7 +36,7 @@
 # 🌈 What is INFTY?
 
 <div align="center">
-<img src="./img/INFTY_demo.gif" alt="animated" />
+<img src="./img/INFTY.gif" alt="animated" />
 </div>
 </br>
 

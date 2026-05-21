@@ -37,10 +37,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/WanNaa/INFTY_demo"
+Homepage = "https://github.com/THUDM/INFTY"
 Documentation = "https://infty-ai.github.io/doc/"
-Repository = "https://github.com/WanNaa/INFTY_demo"
-Issues = "https://github.com/WanNaa/INFTY_demo/issues"
+Repository = "https://github.com/THUDM/INFTY"
+Issues = "https://github.com/THUDM/INFTY/issues"
 
 [project.optional-dependencies]
 examples = [

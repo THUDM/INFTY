@@ -16,7 +16,7 @@ This repository is configured to build documentation locally and publish the gen
    - Branch: `main`
    - Folder: `/ (root)`
 4. Create a token that has write access to `INFTY-AI/doc`.
-5. Add that token as the `DOC_REPO_TOKEN` secret in the source repository `WanNaa/INFTY_demo`.
+5. Add that token as the `DOC_REPO_TOKEN` secret in the source repository `THUDM/INFTY`.
 
 ## Bootstrap the target repository locally
 

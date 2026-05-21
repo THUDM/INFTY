@@ -32,8 +32,8 @@ python -c "from infty.optim import C_Flat, ZeroFlow, UniGrad_FS; print('INFTY im
 ## Install from source
 
 ```bash
-git clone https://github.com/WanNaa/INFTY_demo.git
-cd INFTY_demo
+git clone https://github.com/THUDM/INFTY.git
+cd INFTY
 python -m pip install --upgrade pip
 python -m pip install .
 ```
