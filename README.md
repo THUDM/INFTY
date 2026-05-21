@@ -20,11 +20,10 @@
 -----------
 
 <p align="center">
-  <a href="https://pypi.org/project/infty/"><img src="https://img.shields.io/badge/Documentation-Read%20the%20Docs-blue.svg" alt="Documentation"></a>
+  <a href="https://INFTY-AI.github.io/doc/"><img src="https://img.shields.io/badge/Documentation-Documentation-blue.svg" alt="Documentation"></a>
+  <a href="https://pypi.org/project/infty/"><img src="https://img.shields.io/pypi/v/infty?label=PyPI" alt="PyPI"></a>
   <a href="https://github.com/THUDM/INFTY/"><img src="https://img.shields.io/badge/arXiv-2507.12345-b31b1b.svg" alt="arXiv"></a>
   <a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
-  <a href="https://pypi.org/project/numpy/1.24.4/"><img src="https://img.shields.io/badge/numpy-1.24.4-blue.svg" alt="numpy"></a>
-  <a href="https://pypi.org/project/matplotlib/3.7.5/"><img src="https://img.shields.io/badge/matplotlib-3.7.5-blue.svg" alt="matplotlib"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
 </p>
 
@@ -41,7 +40,9 @@
 </div>
 </br>
 
-Wecome to **INFTY**, a flexible and user-friendly optimization engine tailored for Continual AI (*existing libraries treat optimizers as defaults configuration*). INFTY includes a suite of built-in optimization algorithms that directly tackle core challenges (e.g., catastrophic forgetting, stability–plasticity dilemma, generalization) in Continual AI. INFTY supports plug-and-play and theoretical analysis utilities, compatible with: i) various Continual AI, e.g., PTM-based CL, and Continual PEFT, Continual Diffusion, and Continual VLM etc.; ii) diverse models, e.g., ResNet, Transformer, ViT, CLIP, and Diffusion. INFTY provides a unified optimization solution in Continual AI, can serve as infrastructure for broad deployment.
+Wecome to **INFTY**, a flexible and user-friendly optimization engine tailored for Continual AI (*existing libraries treat optimizers as defaults configuration*). INFTY includes a suite of built-in optimization algorithms that directly tackle core challenges (e.g., catastrophic forgetting, stability–plasticity dilemma, generalization) in Continual AI. INFTY supports plug-and-play optimization and diagnostic visualization utilities, compatible with: i) various Continual AI, e.g., PTM-based CL, and Continual PEFT, Continual Diffusion, and Continual VLM etc.; ii) diverse models, e.g., ResNet, Transformer, ViT, CLIP, and Diffusion. INFTY provides a unified optimization solution in Continual AI, can serve as infrastructure for broad deployment.
+
+**Status**: INFTY is in public beta. The documented APIs under `infty.optim` and `infty.plot` are intended for real-world experimentation and stable incremental releases. Experiment scripts and benchmark integrations under `workdirs/` may evolve faster than the public package APIs.
 
 
 # ✨ Features
@@ -49,7 +50,7 @@ Wecome to **INFTY**, a flexible and user-friendly optimization engine tailored f
     
 - **Usability**: Portable, plugin-style design, enabling easy replacement of fixed options within existing pipelines.
     
-- **Utilities**: Built-in tools for theoretical analysis and visualization, facilitating investigation and diagnostic insight into optimization behavior.
+- **Utilities**: Built-in diagnostic visualization tools for investigating optimization behavior.
 
 # 🧠 Algorithms
 INFTY has implemented three mainstream algorithms currently:
@@ -116,17 +117,17 @@ cd infty && pip install .
 ```
 
 # 🚀 Quick start
-Thanks to the PILOT repo, we provide a simple example showcasing INFTY Engine. Hyperparameters for specific methods are configured in `../infty_configs/`. 
+Thanks to the PILOT repo, we provide formal launcher scripts showcasing INFTY Engine. Hyperparameters for specific methods are configured in `workdirs/infty_configs/`.
 ```bash
 cd infty 
 
-pip install .[examples]
+pip install ".[examples]"
 
-cd examples/PILOT
+bash workdirs/scripts/run_memo_cflat_esd_full.sh
+bash workdirs/scripts/run_ease_zo_all_parallel.sh
+bash workdirs/scripts/run_wa_conflicts_all_parallel.sh
 
-python main.py --config=exps/memo_scr.json --inftyopt=c_flat
-python main.py --config=exps/ease.json --inftyopt=zo_sgd_conserve
-python main.py --config=exps/icarl.json --inftyopt=unigrad_fs
+mkdir -p ../scripts
 ```
 Tips: Feel free to use INFTY in your own projects following 🛠️ Installation or 🧩 Custom usage.
 
@@ -170,13 +171,41 @@ INFTY includes built-in visualization tools for inspecting optimization behavior
 - [x] **Hessian ESD**: curvature analysis via eigenvalue spectrum density
 - [x] **Conflict Curves**: quantify gradient interference (supports PCGrad, GradVac, UniGrad_FS, CAGrad)
 - [x] **Optimization Trajectory**: observe optimization directions under gradient shifts with a toy example
+
+Default plot outputs are organized under:
+
+```text
+workdirs/plots/
+  diagnostics/
+  examples/
+  pilot/
+  experiments/
+  custom/
+```
+
 ```python
 from infty import plot as infty_plot
 
-infty_plot.visualize_landscape(self._network, self.create_loss_fn, train_loader, self._cur_task, self._device)
-infty_plot.visualize_esd(self._network, self.create_loss_fn, train_loader, self._cur_task, self._device)
-infty_plot.visualize_conflicts()
-infty_plot.visualize_trajectory(optim="c_flat")
+infty_plot.visualize_landscape(
+    optimizer=optimizer,
+    model=self._network,
+    create_loss_fn=self.create_loss_fn,
+    loader=train_loader,
+    task=self._cur_task,
+    device=self._device,
+    output_dir="workdirs/plots/diagnostics/landscape/demo",
+)
+infty_plot.visualize_esd(
+    optimizer=optimizer,
+    model=self._network,
+    create_loss_fn=self.create_loss_fn,
+    loader=train_loader,
+    task=self._cur_task,
+    device=self._device,
+    output_dir="workdirs/plots/diagnostics/esd/demo",
+)
+infty_plot.visualize_conflicts(optimizer, task=self._cur_task, output_dir="workdirs/plots/diagnostics/conflicts/demo")
+infty_plot.visualize_trajectory("adam", n_iter=2000, output_dir="workdirs/plots/diagnostics/trajectory/demo")
 ```
 
 # 📝 Citation

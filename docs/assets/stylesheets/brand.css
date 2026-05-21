@@ -1,0 +1,115 @@
+.md-header__title {
+  box-sizing: border-box;
+  min-width: 0;
+  margin-left: -0.4rem;
+  padding-right: 1rem;
+}
+
+.infty-brand {
+  max-width: 100%;
+  width: 100%;
+}
+
+.infty-brand__lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  overflow: visible;
+  padding-right: 0.4rem;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.infty-brand__name {
+  flex: 0 0 auto;
+  letter-spacing: 0.02em;
+}
+
+.infty-brand__home {
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.infty-brand__home:hover,
+.infty-brand__home:focus-visible {
+  color: inherit;
+}
+
+.infty-brand__tagline {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  max-width: calc(100% - 4.8rem);
+  min-width: 0;
+  color: #59b8ff;
+  font-family: var(--md-code-font-family);
+  font-size: 0.56rem;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  opacity: 0.95;
+  overflow: visible;
+  white-space: nowrap;
+  filter: drop-shadow(0 0 0.35rem rgba(89, 184, 255, 0.22));
+}
+
+.md-tabs__link {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.md-typeset table.algo-papers {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.md-typeset table.algo-papers th,
+.md-typeset table.algo-papers td {
+  vertical-align: top;
+  white-space: normal;
+}
+
+.md-typeset table.algo-papers th:nth-child(1),
+.md-typeset table.algo-papers td:nth-child(1) {
+  width: 7.25rem;
+  text-align: left;
+}
+
+.md-typeset table.algo-papers th:nth-child(2),
+.md-typeset table.algo-papers td:nth-child(2) {
+  width: 7rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.md-typeset table.algo-papers th:nth-child(3),
+.md-typeset table.algo-papers td:nth-child(3) {
+  text-align: left;
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-header__title {
+    margin-left: -0.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .infty-brand__tagline {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-header__title {
+    margin-left: 0;
+  }
+
+  .infty-brand__lockup {
+    gap: 0.3rem;
+  }
+
+  .infty-brand__tagline {
+    display: none;
+  }
+}

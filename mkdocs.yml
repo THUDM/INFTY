@@ -1,0 +1,63 @@
+site_name: INFTY
+site_description: Optimization-centric toolkit for Continual AI
+site_url: https://INFTY-AI.github.io/doc/
+repo_url: https://github.com/WanNaa/INFTY_demo
+repo_name: WanNaa/INFTY_demo
+edit_uri: edit/main/docs/
+
+extra:
+  browser_title: INFTY Docs
+
+theme:
+  name: material
+  logo: assets/images/logo_mark.svg
+  favicon: assets/images/logo_mark.ico
+  custom_dir: theme_overrides
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+
+extra_css:
+  - assets/stylesheets/brand.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Get Started:
+      - Installation: installation.md
+      - Quick Start: quickstart.md
+      - Examples: examples.md
+  - Using INFTY:
+      - User Guide: user_guide.md
+      - API Reference: api_reference.md
+      - Troubleshooting: troubleshooting.md
+  - Project & Development:
+      - Version Policy: stability_policy.md
+      - Developer Guide: developer_guide.md
+      - Changelog: changelog.md
+      - Citation: citation.md

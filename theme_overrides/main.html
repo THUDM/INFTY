@@ -1,0 +1,15 @@
+{#-
+  Override the browser tab title without changing the visible site brand.
+-#}
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  {% set browser_title = config.extra.browser_title | d(config.site_name, true) %}
+  {% if page.meta and page.meta.title %}
+    <title>{{ page.meta.title }} - {{ browser_title }}</title>
+  {% elif page.title and not page.is_homepage %}
+    <title>{{ page.title | striptags }} - {{ browser_title }}</title>
+  {% else %}
+    <title>{{ browser_title }}</title>
+  {% endif %}
+{% endblock %}

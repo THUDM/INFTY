@@ -7,18 +7,23 @@ name = "infty"
 dynamic = ["version"]
 description = "A continual learning optimizer and visualization toolkit"
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
     {name = "taofeng weili", email = "ymjiii98@gmail.com"}
 ]
 keywords = ["optimization", "visualization", "machine learning", "deep learning"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
@@ -31,13 +36,19 @@ dependencies = [
     'tqdm',
 ]
 
+[project.urls]
+Homepage = "https://github.com/WanNaa/INFTY_demo"
+Documentation = "https://infty-ai.github.io/doc/"
+Repository = "https://github.com/WanNaa/INFTY_demo"
+Issues = "https://github.com/WanNaa/INFTY_demo/issues"
+
 [project.optional-dependencies]
 examples = [
     "easydict",
     "Pillow",
     "PyYAML",
     "scikit-learn",
-    "timm>=0.6.13",
+    "timm==0.6.13",
     "umap-learn",
 ]
 

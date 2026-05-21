@@ -1,0 +1,15 @@
+# ZeroFlow optimizer configuration
+
+name: zeroflow
+
+init_epochs: 100
+init_lr: 0.0001
+q: 1
+zo_eps: 0.001
+perturbation_mode: two_side
+memory_efficient: true
+
+use_history_grad: false
+alpha: 0.9
+
+gradient_sparsity: null

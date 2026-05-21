@@ -133,12 +133,31 @@ def hessian_vector_product(gradsH, params, v):
     params is the corresponding variables,
     v is the vector.
     """
-    hv = torch.autograd.grad(gradsH,
-                             params,
-                             grad_outputs=v,
-                             only_inputs=True,
-                             retain_graph=True)
-    return hv
+    active_indices = [idx for idx, grad in enumerate(gradsH) if torch.is_tensor(grad)]
+    if not active_indices:
+        return tuple(torch.zeros_like(param) for param in params)
+
+    active_grads = [gradsH[idx] for idx in active_indices]
+    active_params = [params[idx] for idx in active_indices]
+    active_v = [v[idx] for idx in active_indices]
+
+    active_hv = torch.autograd.grad(
+        active_grads,
+        active_params,
+        grad_outputs=active_v,
+        only_inputs=True,
+        retain_graph=True,
+    )
+
+    hv = []
+    active_cursor = 0
+    for idx, param in enumerate(params):
+        if idx in active_indices:
+            hv.append(active_hv[active_cursor])
+            active_cursor += 1
+        else:
+            hv.append(torch.zeros_like(param))
+    return tuple(hv)
 
 
 def orthnormal(w, v_list):
