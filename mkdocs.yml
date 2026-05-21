@@ -1,8 +1,8 @@
 site_name: INFTY
 site_description: Optimization-centric toolkit for Continual AI
 site_url: https://INFTY-AI.github.io/doc/
-repo_url: https://github.com/WanNaa/INFTY_demo
-repo_name: WanNaa/INFTY_demo
+repo_url: https://github.com/THUDM/INFTY
+repo_name: THUDM/INFTY
 edit_uri: edit/main/docs/
 
 extra:
