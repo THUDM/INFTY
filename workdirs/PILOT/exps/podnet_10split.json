@@ -1,0 +1,23 @@
+{
+  "prefix": "",
+  "dataset": "cifar100",
+  "memory_size": 2000,
+  "memory_per_class": 20,
+  "fixed_memory": false,
+  "shuffle": true,
+  "init_cls": 10,
+  "increment": 10,
+  "model_name": "podnet",
+  "backbone_type": "resnet32",
+  "device": ["0"],
+  "seed": [1993],
+  "epochs": 160,
+  "lrate": 0.1,
+  "ft_epochs": 20,
+  "ft_lrate": 0.005,
+  "batch_size": 128,
+  "weight_decay": 0.0005,
+  "nb_proxy": 10,
+  "lambda_c_base": 5.0,
+  "lambda_f_base": 1.0
+}

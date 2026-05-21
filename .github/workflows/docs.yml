@@ -1,0 +1,88 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "theme_overrides/**"
+      - "sphinx_docs/**"
+      - "src/**"
+      - "mkdocs.yml"
+      - ".readthedocs.yml"
+      - "requirements-docs.txt"
+      - "pyproject.toml"
+      - "setup.py"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-publish
+  cancel-in-progress: false
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    env:
+      DOC_SITE_REPO: INFTY-AI/doc
+      DOC_SITE_BRANCH: main
+      DOC_REPO_TOKEN: ${{ secrets.DOC_REPO_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install documentation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-docs.txt
+
+      - name: Build MkDocs site
+        run: |
+          rm -rf docs/sphinx/_build
+          mkdocs build --strict
+
+      - name: Build Sphinx API docs
+        run: sphinx-build -b html sphinx_docs build/sphinx/html
+
+      - name: Skip external publish when token is missing
+        if: ${{ env.DOC_REPO_TOKEN == '' }}
+        run: echo "DOC_REPO_TOKEN is not configured; built docs locally but skipped publish to ${DOC_SITE_REPO}."
+
+      - name: Checkout documentation site repository
+        if: ${{ env.DOC_REPO_TOKEN != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.DOC_SITE_REPO }}
+          ref: ${{ env.DOC_SITE_BRANCH }}
+          token: ${{ env.DOC_REPO_TOKEN }}
+          path: doc-site
+
+      - name: Sync built site into documentation site repository
+        if: ${{ env.DOC_REPO_TOKEN != '' }}
+        run: |
+          touch site/.nojekyll
+          rsync -av --delete --exclude '.git/' site/ doc-site/
+
+      - name: Commit and push published site
+        if: ${{ env.DOC_REPO_TOKEN != '' }}
+        working-directory: doc-site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No site changes to publish."
+            exit 0
+          fi
+          git commit -m "docs: publish from ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+          git push origin HEAD:${DOC_SITE_BRANCH}

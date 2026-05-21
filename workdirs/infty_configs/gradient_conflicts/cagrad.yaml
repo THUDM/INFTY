@@ -1,0 +1,6 @@
+# CAGrad optimizer configuration
+
+name: cagrad
+
+calpha: 0.1
+rescale: 0

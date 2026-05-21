@@ -1,0 +1,15 @@
+# GAM optimizer configuration
+
+name: gam
+rho: 0.1
+norm_rho: 0.02
+
+grad_beta_1: 1
+grad_beta_2: -1
+grad_beta_3: 1
+grad_gamma: 0.3
+
+adaptive: false
+perturb_eps: 1e-12
+grad_reduce: mean
+rho_scheduler: null

@@ -95,12 +95,8 @@ class hessian():
             loss.backward(create_graph=True)
             params, gradsH = get_params_grad(self.model)
             self.model.zero_grad()
-            
-            Hv = torch.autograd.grad(gradsH,
-                                     params,
-                                     grad_outputs=v,
-                                     only_inputs=True,
-                                     retain_graph=False)
+
+            Hv = hessian_vector_product(gradsH, params, v)
             THv = [
                 THv1 + Hv1 * float(tmp_num_data) + 0.
                 for THv1, Hv1 in zip(THv, Hv)
@@ -269,7 +265,9 @@ class hessian():
             
             a_, b_ = torch.linalg.eigh(T)
             eigen_list = a_
-            weight_list = torch.pow(b_, 2)
+            # In SLQ, the quadrature weights are the squared first components
+            # of the Lanczos eigenvectors.
+            weight_list = torch.pow(b_[0, :], 2)
             # eigen_list = torch.stack([a_.real, a_.imag], dim=1)  # (n, 2)
             # print(f"eigen_list: {eigen_list.shape}")
             # weight_list = torch.pow(b_.abs(), 2)  # (n, n) 

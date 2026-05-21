@@ -1,0 +1,12 @@
+# C-Flat optimizer configuration
+
+name: c_flat
+rho: 0.1
+lamb: 0.1
+
+strategy: basic
+
+adaptive: false
+perturb_eps: 1e-12
+grad_reduce: mean
+rho_scheduler: null
