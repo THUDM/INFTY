@@ -13,3 +13,26 @@
     <title>{{ browser_title }}</title>
   {% endif %}
 {% endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if config.repo_url %}
+    <script>
+      (() => {
+        const sourceKey = `${__md_scope.pathname}.__source`;
+        const sourceRepoKey = `${__md_scope.pathname}.__source_repo`;
+        const currentRepo = {{ config.repo_url | tojson }};
+        try {
+          const cachedRepo = JSON.parse(sessionStorage.getItem(sourceRepoKey) || "null");
+          if (cachedRepo !== currentRepo) {
+            sessionStorage.removeItem(sourceKey);
+            sessionStorage.setItem(sourceRepoKey, JSON.stringify(currentRepo));
+          }
+        } catch (_) {
+          sessionStorage.removeItem(sourceKey);
+          sessionStorage.setItem(sourceRepoKey, JSON.stringify(currentRepo));
+        }
+      })();
+    </script>
+  {% endif %}
+{% endblock %}
