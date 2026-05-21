@@ -131,7 +131,7 @@ cat > "$TARGET_DIR/index.html" <<'EOF'
       <h1>INFTY documentation is being prepared.</h1>
       <p>
         This repository is intended to host the published static site for
-        <a href="https://github.com/WanNaa/INFTY_demo">WanNaa/INFTY_demo</a>.
+        <a href="https://github.com/THUDM/INFTY">THUDM/INFTY</a>.
       </p>
       <p>
         Once the source repository finishes its documentation workflow, this
@@ -164,6 +164,6 @@ Next steps:
   1. Create the GitHub repository INFTY-AI/doc if it does not exist yet.
   2. Commit and push the files in $TARGET_DIR to the main branch of that repository.
   3. Enable GitHub Pages for the main branch root in INFTY-AI/doc.
-  4. Add a DOC_REPO_TOKEN secret to WanNaa/INFTY_demo with write access to INFTY-AI/doc.
+  4. Add a DOC_REPO_TOKEN secret to THUDM/INFTY with write access to INFTY-AI/doc.
   5. Trigger the Documentation workflow in this source repository.
 EOF

@@ -11,7 +11,7 @@ For the toolkit, use a software citation similar to:
   title        = {INFTY: An Optimization Toolkit to Support Continual AI},
   author       = {INFTY contributors},
   year         = {2026},
-  url          = {https://github.com/WanNaa/INFTY_demo}
+  url          = {https://github.com/THUDM/INFTY}
 }
 ```
 
