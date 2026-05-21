@@ -44,9 +44,9 @@ For editable development:
 python -m pip install -e .
 ```
 
-## Install PILOT/demo dependencies
+## Install PILOT and demo dependencies
 
-The `examples` extra primarily supports the PILOT demo and related optional workflows. It includes packages such as `easydict`, `Pillow`, `PyYAML`, `scikit-learn`, `timm`, and `umap-learn`.
+The `examples` extra primarily supports the PILOT benchmark integration and related optional workflows. It includes packages such as `easydict`, `Pillow`, `PyYAML`, `scikit-learn`, `timm`, and `umap-learn`.
 
 The minimal scripts under `examples/infty_minimal/` use only the core INFTY installation.
 
