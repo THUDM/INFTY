@@ -11,8 +11,8 @@ Install from source:
 
 .. code-block:: bash
 
-   git clone https://github.com/WanNaa/INFTY_demo.git
-   cd INFTY_demo
+   git clone https://github.com/THUDM/INFTY.git
+   cd INFTY
    python -m pip install -e ".[examples]"
 
 Verify imports:
