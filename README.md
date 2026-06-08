@@ -86,8 +86,6 @@ INFTY empowers CIDM! A tiny demo shows how INFTY can be applied to train Concept
 <img src="./assets/cidm.png"/>  
 </div>
 
-
-
 ## Scenario 3: Vision-Language Continual Learning
 INFTY also supports multi-modal continual learning — ready for VLMs, AVLMs, and more.  Origin repo can be found in [DMNSP](https://github.com/RL-VIG/DMNSP).
 
@@ -95,6 +93,7 @@ INFTY also supports multi-modal continual learning — ready for VLMs, AVLMs, an
 | -------- | :-----: | :-----: |  :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: |
 | DMNSP | **99.20** | 96.10 | **91.93** | 87.05 | 87.00 | 86.10 | 84.17 | 83.05 | 81.58 | 79.94 | 87.61 |
 |+INFTY | **99.20** | **96.30** | 91.80 | **87.30** | **87.44** | **86.60** | **84.46** | **83.20** | **81.69** | **80.52** | **87.85** | 
+
 
 
 
