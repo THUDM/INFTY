@@ -170,7 +170,7 @@ INFTY includes built-in visualization tools for inspecting optimization behavior
 - [x] **Hessian ESD**: curvature analysis via eigenvalue spectrum density
 - [x] **Conflict Curves**: quantify gradient interference (supports PCGrad, GradVac, UniGrad_FS, CAGrad)
 - [x] **Optimization Trajectory**: observe optimization directions under gradient shifts with a toy example
-
+ 
 Default plot outputs are organized under:
 
 ```text
@@ -237,3 +237,4 @@ If you have any questions, feel free to open an issue or contact the authors: We
 
 # 🧾 License
 This project is licensed under the MIT License.
+
