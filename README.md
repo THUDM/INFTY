@@ -211,6 +211,8 @@ infty_plot.visualize_trajectory("adam", n_iter=2000, output_dir="workdirs/plots/
 # 📝 Citation
 If any content in this repo is useful for your work, please cite the following paper:
 
+- `C-Flat Turbo:` A Faster Path to Continual Learning. CVPR 2026 [[paper]](https://openaccess.thecvf.com/content/CVPR2026/papers/Li_A_Faster_Path_to_Continual_Learning_CVPR_2026_paper.pdf)
+  
 - `ZeroFlow:` Zeroflow: Overcoming catastrophic forgetting is easier than you think. ICML 2025 [[paper]](https://arxiv.org/abs/2501.01045)
 
 - `C-Flat++:` C-Flat++: Towards a More Efficient and Powerful Framework for Continual Learning. Arxiv 2025 [[paper]](https://arxiv.org/abs/2508.18860)
