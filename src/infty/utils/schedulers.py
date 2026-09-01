@@ -53,6 +53,24 @@ class ProportionScheduler:
         self._last_lr = [value]
         return value
 
+    def state_dict(self):
+        scheduler = self.pytorch_lr_scheduler
+        return {
+            "version": 1,
+            "t": self.t,
+            "_last_lr": list(self._last_lr),
+            "pytorch_lr_scheduler": (
+                scheduler.state_dict() if hasattr(scheduler, "state_dict") else None
+            ),
+        }
+
+    def load_state_dict(self, state_dict):
+        self.t = state_dict["t"]
+        self._last_lr = list(state_dict["_last_lr"])
+        scheduler_state = state_dict.get("pytorch_lr_scheduler")
+        if scheduler_state is not None and hasattr(self.pytorch_lr_scheduler, "load_state_dict"):
+            self.pytorch_lr_scheduler.load_state_dict(scheduler_state)
+
 
 class SchedulerBase:
     def __init__(
@@ -97,6 +115,17 @@ class SchedulerBase:
     def lr(self):
         return self._last_lr[0]
 
+    def state_dict(self):
+        return {
+            "version": 1,
+            "t": self.t,
+            "_last_lr": list(self._last_lr),
+        }
+
+    def load_state_dict(self, state_dict):
+        self.t = state_dict["t"]
+        self._last_lr = list(state_dict["_last_lr"])
+
 
 class LinearScheduler(SchedulerBase):
     def step_func(self):
@@ -122,5 +151,4 @@ class PolyScheduler(SchedulerBase):
     def step_func(self):
         value = self.min_value + (self.max_value - self.min_value) * max(0.0, (self.t - self.warmup_steps)) ** self.poly_order
         return value
-
 
