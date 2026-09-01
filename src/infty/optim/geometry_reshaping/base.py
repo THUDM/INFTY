@@ -59,10 +59,50 @@ class InftyBaseOptimizer(torch.optim.Optimizer):
         self.base_optimizer.zero_grad(set_to_none)
 
     def state_dict(self):
-        return self.base_optimizer.state_dict()
+        scheduler_state = {}
+        for name in ("rho_scheduler", "norm_rho_scheduler"):
+            scheduler = getattr(self, name, None)
+            scheduler_state[name] = (
+                scheduler.state_dict()
+                if scheduler is not None and hasattr(scheduler, "state_dict")
+                else None
+            )
+
+        attributes = {}
+        for name in (
+            "name", "adaptive", "perturb_eps", "rho", "norm_rho",
+            "grad_norm_rho", "alpha", "k", "_step_count",
+        ):
+            if hasattr(self, name):
+                attributes[name] = getattr(self, name)
+
+        return {
+            "version": 1,
+            "base_optimizer": self.base_optimizer.state_dict(),
+            "infty_optimizer": super().state_dict(),
+            "attributes": attributes,
+            "schedulers": scheduler_state,
+        }
 
     def load_state_dict(self, state_dict):
-        self.base_optimizer.load_state_dict(state_dict)
+        # Checkpoints created before the versioned wrapper format only contain
+        # the base optimizer state. Keep accepting them for compatibility.
+        if "base_optimizer" not in state_dict:
+            self.base_optimizer.load_state_dict(state_dict)
+            self.param_groups = self.base_optimizer.param_groups
+            return
+
+        super().load_state_dict(state_dict["infty_optimizer"])
+        self.base_optimizer.load_state_dict(state_dict["base_optimizer"])
+        self.param_groups = self.base_optimizer.param_groups
+
+        for name, value in state_dict.get("attributes", {}).items():
+            setattr(self, name, value)
+
+        for name, scheduler_state in state_dict.get("schedulers", {}).items():
+            scheduler = getattr(self, name, None)
+            if scheduler_state is not None and scheduler is not None:
+                scheduler.load_state_dict(scheduler_state)
 
     def maybe_no_sync(self):
         if torch.distributed.is_initialized():
