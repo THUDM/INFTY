@@ -34,13 +34,13 @@ INFTY currently exposes three optimizer families under `infty.optim`. The papers
   <tbody>
     <tr>
       <td><code>C-Flat++</code></td>
-      <td>arXiv 2025</td>
+      <td>IJCV 2026</td>
       <td><a href="https://arxiv.org/abs/2508.18860"><em>C-Flat++: Towards a More Efficient and Powerful Framework for Continual Learning.</em></a></td>
     </tr>
     <tr>
       <td><code>C-Flat</code></td>
-      <td>arXiv 2024</td>
-      <td><a href="https://arxiv.org/abs/2404.00986v2"><em>Make Continual Learning Stronger via C-Flat.</em></a></td>
+      <td>NeurIPS 2024</td>
+      <td><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/0e705ac30e573d1526f81a0fd071a151-Abstract-Conference.html"><em>Make Continual Learning Stronger via C-Flat.</em></a></td>
     </tr>
     <tr>
       <td><code>GAM</code></td>
@@ -80,8 +80,8 @@ Implementation mapping: `C_Flat` exposes both `C-Flat` with `strategy="basic"` a
   <tbody>
     <tr>
       <td><code>ZeroFlow</code></td>
-      <td>arXiv 2025</td>
-      <td><a href="https://arxiv.org/abs/2501.01045"><em>Zeroflow: Overcoming Catastrophic Forgetting Is Easier Than You Think.</em></a></td>
+      <td>ICML 2025</td>
+      <td><a href="https://proceedings.mlr.press/v267/feng25j.html"><em>ZeroFlow: Overcoming Catastrophic Forgetting is Easier than You Think.</em></a></td>
     </tr>
     <tr>
       <td><code>ZeroFlow (MeZO-style variants)</code></td>

@@ -211,11 +211,11 @@ infty_plot.visualize_trajectory("adam", n_iter=2000, output_dir="workdirs/plots/
 # 📝 Citation
 If any content in this repo is useful for your work, please cite the following paper:
 
-- `ZeroFlow:` Zeroflow: Overcoming catastrophic forgetting is easier than you think. ICML 2025 [[paper]](https://arxiv.org/abs/2501.01045)
+- `ZeroFlow:` ZeroFlow: Overcoming Catastrophic Forgetting is Easier than You Think. ICML 2025 [[paper]](https://proceedings.mlr.press/v267/feng25j.html)
 
-- `C-Flat++:` C-Flat++: Towards a More Efficient and Powerful Framework for Continual Learning. Arxiv 2025 [[paper]](https://arxiv.org/abs/2508.18860)
+- `C-Flat++:` C-Flat++: Towards a More Efficient and Powerful Framework for Continual Learning. IJCV 2026 [[paper]](https://arxiv.org/abs/2508.18860)
 
-- `C-Flat:` Make Continual Learning Stronger via C-Flat. NeurIPS 2024 [[paper]](https://arxiv.org/abs/2404.00986v2)
+- `C-Flat:` Make Continual Learning Stronger via C-Flat. NeurIPS 2024 [[paper]](https://proceedings.neurips.cc/paper_files/paper/2024/hash/0e705ac30e573d1526f81a0fd071a151-Abstract-Conference.html)
 
 - `UniGrad-FS:` UniGrad-FS: Unified Gradient Projection With Flatter Sharpness for Continual Learning. TII 2024 [[paper]](https://ieeexplore.ieee.org/abstract/document/10636267)
 
