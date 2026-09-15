@@ -19,7 +19,6 @@ class SAM(InftyBaseOptimizer):
         self.rho_scheduler = args_ns.rho_scheduler
         
         self.update_rho_t()
-        self.get_grad_reduce(grad_reduce)
 
     
     
