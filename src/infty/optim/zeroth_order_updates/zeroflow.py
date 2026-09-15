@@ -8,7 +8,6 @@ from infty.utils.running import fast_random_mask_like
 from types import SimpleNamespace
 
 from torch.optim import Optimizer
-from types import SimpleNamespace
 
 class ZeroFlow(Optimizer):
     def __init__(self, params, base_optimizer, model, args, **kwargs):
@@ -36,8 +35,11 @@ class ZeroFlow(Optimizer):
         self.gradient_sparsity = args_ns.gradient_sparsity
         self.memory_efficient = args_ns.memory_efficient
 
-        # generator
-        self.sparse_grad_rng = torch.Generator(device='cuda' if torch.cuda.is_available() else 'cpu')
+        # Generator device must match parameter tensors for sparse masking.
+        # torch.Generator only supports cpu/cuda; non-CUDA param devices use cpu.
+        param_device = next(model.parameters()).device
+        gen_device = 'cuda' if param_device.type == 'cuda' else 'cpu'
+        self.sparse_grad_rng = torch.Generator(device=gen_device)
         self.sparse_grad_random_seed = np.random.randint(int(1e9))
 
         # inject model and base_optimizer
