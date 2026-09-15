@@ -26,6 +26,32 @@ import tqdm
 from .running import group_product, group_add, normalization, get_params_grad, hessian_vector_product, orthnormal
 
 
+def unpack_batch(batch):
+    """Unpack a dataloader batch into (inputs, targets).
+
+    Accepts the common PyTorch ``(inputs, targets)`` pair and the legacy
+    PyHessian-style ``(index, inputs, targets)`` triplet. Dict batches with
+    ``inputs``/``targets`` (or ``input``/``target``) keys are also supported.
+    """
+    if isinstance(batch, dict):
+        if 'inputs' in batch and 'targets' in batch:
+            return batch['inputs'], batch['targets']
+        if 'input' in batch and 'target' in batch:
+            return batch['input'], batch['target']
+        raise ValueError(
+            "Dict batch must contain 'inputs'/'targets' or 'input'/'target' keys; "
+            f"got keys={list(batch.keys())}"
+        )
+    if not isinstance(batch, (tuple, list)):
+        raise TypeError(f"Unsupported batch type: {type(batch)!r}")
+    if len(batch) == 2:
+        return batch[0], batch[1]
+    if len(batch) == 3:
+        return batch[1], batch[2]
+    raise ValueError(
+        f"Expected batch of length 2 (inputs, targets) or 3 (index, inputs, targets); got length {len(batch)}"
+    )
+
 
 class hessian():
     """
@@ -84,7 +110,8 @@ class hessian():
 
         THv = [torch.zeros(p.size()).to(self.device) for p in self.params
               ]  # accumulate result
-        for _, inputs, targets in self.data:
+        for batch in self.data:
+            inputs, targets = unpack_batch(batch)
             self.model.zero_grad()
             tmp_num_data = inputs.size(0)
 
