@@ -38,9 +38,10 @@ class LookSAM(InftyBaseOptimizer):
     def compute_gv(self):
         for group in self.param_groups:
             for p in group['params']:
-                if p.grad is None or 'old_grad' not in self.state[p]:
+                # sam_perturb_weights stores the first-order grad under 'old_g'
+                if p.grad is None or 'old_g' not in self.state[p]:
                     continue
-                old_grad = self.state[p]['old_grad']
+                old_grad = self.state[p]['old_g']
                 new_grad = p.grad
                 g_grad_norm = old_grad / (old_grad.norm(p=2) + 1e-8)
                 g_new_grad_norm = new_grad / (new_grad.norm(p=2) + 1e-8)
@@ -55,7 +56,8 @@ class LookSAM(InftyBaseOptimizer):
                 if p.grad is None or 'gv' not in self.state[p]:
                     continue
                 gv = self.state[p]['gv']
-                p.grad.add_(self.alpha.to(p) * (p.grad.norm(p=2) / (gv.norm(p=2) + 1e-8)) * gv)
+                alpha = self.alpha.to(p) if torch.is_tensor(self.alpha) else self.alpha
+                p.grad.add_(alpha * (p.grad.norm(p=2) / (gv.norm(p=2) + 1e-8)) * gv)
 
     def step(self, closure=None, delay=False):
         if closure:
